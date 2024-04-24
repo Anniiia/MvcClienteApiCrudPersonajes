@@ -60,7 +60,7 @@ namespace MvcClienteApiCrudPersonajes.Controllers
 
         public async Task<IActionResult> Buscador()
         {
-            ViewData["ESPECIALIDADES"] = await this.service.GetSeries();
+            ViewData["SERIES"] = await this.service.GetSeries();
 
             return View();
         }
@@ -69,7 +69,7 @@ namespace MvcClienteApiCrudPersonajes.Controllers
 
         public async Task<IActionResult> Buscador(string serie)
         {
-            ViewData["ESPECIALIDADES"] = await this.service.GetSeries();
+            ViewData["SERIES"] = await this.service.GetSeries();
 
             List<Personaje> personaje = await this.service.GetPersonajesSerieAsync(serie);
             return View(personaje);

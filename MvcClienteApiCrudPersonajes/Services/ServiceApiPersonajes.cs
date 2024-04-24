@@ -13,7 +13,7 @@ namespace MvcClienteApiCrudPersonajes.Services
         public ServiceApiPersonajes(IConfiguration configuration)
         {
             this.header = new MediaTypeWithQualityHeaderValue("application/json");
-            this.UrlApi = configuration.GetValue<string>("ApiUrls:ApiDoctores");
+            this.UrlApi = configuration.GetValue<string>("ApiUrls:ApiPersonajes");
         }
 
         private async Task<T> CallApiAsync<T>(string request)
@@ -37,7 +37,7 @@ namespace MvcClienteApiCrudPersonajes.Services
         }
         public async Task<List<Personaje>> GetPersonajesAsync()
         {
-            string request = "api/doctores";
+            string request = "api/Personajes";
             List<Personaje> data = await this.CallApiAsync<List<Personaje>>(request);
 
             return data;

@@ -9,6 +9,9 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<p>
+    <a asp-action="Buscador" class="btn btn-dark">Buscar por Series</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -37,15 +40,17 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Imagen)
+                <img src="@item.Imagen" style="width:80px;height80px;"/>
+
+                @* @Html.DisplayFor(modelItem => item.Imagen) *@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Serie)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    <a asp-controller="Personajes" asp-action="Edit" asp-route-id="@item.IdPersonaje" class="btn btn-warning">Edit</a>
+                    <a asp-controller="Personajes" asp-action="Delete" asp-route-id="@item.IdPersonaje" class="btn btn-danger">Delete</a>
+                    <a asp-controller="Personajes" asp-action="Details" asp-route-id="@item.IdPersonaje" class="btn btn-dark">Details</a>
             </td>
         </tr>
 }
